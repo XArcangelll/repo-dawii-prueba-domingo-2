@@ -66,4 +66,14 @@ public class AlumnoController {
 			return ResponseEntity.badRequest().build();
 		}
 	}
+	
+	@GetMapping("/{dni}")
+	public ResponseEntity<List<Alumno>> buscarDni(@PathVariable("dni") String dni){
+		log.info(">>> inicio >>> busca " + dni);
+		List<Alumno> lstAlumno  = service.listaPorDni(dni);
+			return ResponseEntity.ok(lstAlumno);
+
+	}
+	
+	
 }
